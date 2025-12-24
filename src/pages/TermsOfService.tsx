@@ -16,7 +16,7 @@ const TermsOfService = () => {
       provider: {
         '@type': 'Organization',
         name: 'Address Translator',
-        url: 'https://transadd.site'
+        url: 'https://transadd.mxai.site'
       },
       areaServed: 'Global',
       availableLanguage: ['Chinese', 'English']

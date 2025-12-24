@@ -6,7 +6,7 @@
 
   <!-- 主页 -->
   <url>
-    <loc>https://transadd.site/</loc>
+    <loc>https://transadd.mxai.site/</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.00</priority>
@@ -14,7 +14,7 @@
 
   <!-- 隐私政策页面 -->
   <url>
-    <loc>https://transadd.site/privacy</loc>
+    <loc>https://transadd.mxai.site/privacy</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
@@ -22,28 +22,28 @@
 
   <!-- 长尾关键词着陆页 -->
   <url>
-    <loc>https://transadd.site/cn-to-en-address</loc>
+    <loc>https://transadd.mxai.site/cn-to-en-address</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
   <url>
-    <loc>https://transadd.site/address-formatting</loc>
+    <loc>https://transadd.mxai.site/address-formatting</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
   <url>
-    <loc>https://transadd.site/cross-border-address</loc>
+    <loc>https://transadd.mxai.site/cross-border-address</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
   <url>
-    <loc>https://transadd.site/logistics-address-translation</loc>
+    <loc>https://transadd.mxai.site/logistics-address-translation</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>

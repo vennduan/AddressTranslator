@@ -96,7 +96,7 @@ const Privacy = () => {
               如果您对本隐私政策有任何疑问，请通过以下方式联系我们：
             </p>
             <p className="mt-2 text-slate-700 dark:text-slate-200">
-              邮箱：privacy@transadd.site
+              邮箱：privacy@mxai.site
             </p>
           </section>
         </div>

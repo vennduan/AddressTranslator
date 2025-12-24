@@ -33,7 +33,7 @@ const FAQ = () => {
       publisher: {
         '@type': 'Organization',
         name: 'Address Translator',
-        url: 'https://transadd.site'
+        url: 'https://transadd.mxai.site'
       },
       inLanguage: language === 'zh' ? 'zh-CN' : 'en-US'
     };

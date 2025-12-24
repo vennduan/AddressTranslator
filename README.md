@@ -82,7 +82,7 @@ npm run preview
 
 ```bash
 # AI翻译API地址
-VITE_API_URL=https://get.transadd.site
+VITE_API_URL=https://api.mxai.site/transadd
 
 # Google Analytics（可选）
 VITE_GA_ID=your-ga-id
@@ -97,9 +97,9 @@ VITE_GA_ID=your-ga-id
 
 本项目包含完整的法律文档页面：
 
-- [隐私政策](https://transadd.site/privacy) - Privacy Policy
-- [服务条款](https://transadd.site/terms) - Terms of Service
-- [AI透明度声明](https://transadd.site/transparency) - AI Transparency Statement
+- [隐私政策](https://transadd.mxai.site/privacy) - Privacy Policy
+- [服务条款](https://transadd.mxai.site/terms) - Terms of Service
+- [AI透明度声明](https://transadd.mxai.site/transparency) - AI Transparency Statement
 
 ## 🤝 贡献 / Contributing
 
