@@ -106,3 +106,6 @@ Thumbs.db
 
 # custom
 *.local
+
+#worker
+worker.js

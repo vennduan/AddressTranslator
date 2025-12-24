@@ -22,7 +22,7 @@ function AppContent() {
   const [showManualModal, setShowManualModal] = useState(false)
 
   const fetchTranslation = async (address: string) => {
-    const url = `https://get.transadd.site/`;
+    const url = `https://api.mxai.site/transadd/`;
     const tranlateType = fromChinese ? 'cn2en' : 'en2cn'
     try {
       const response = await fetch(url, {
