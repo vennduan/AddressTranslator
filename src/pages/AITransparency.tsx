@@ -9,7 +9,7 @@ const AITransparency = () => {
     const structuredData = {
       '@context': 'https://schema.org',
       '@type': 'TechArticle',
-      '@id': 'https://transadd.site/transparency',
+      '@id': 'https://transadd.mxai.site/transparency',
       headline: language === 'zh' ? 'AI透明度声明 - 地址翻译器' : 'AI Transparency Statement - Address Translator',
       description: language === 'zh'
         ? '了解地址翻译器如何使用AI技术，以及我们对透明度、公平性和安全性的承诺。'
@@ -20,12 +20,12 @@ const AITransparency = () => {
       author: {
         '@type': 'Organization',
         name: 'Address Translator',
-        url: 'https://transadd.site'
+        url: 'https://transadd.mxai.site'
       },
       publisher: {
         '@type': 'Organization',
         name: 'Address Translator',
-        url: 'https://transadd.site'
+        url: 'https://transadd.mxai.site'
       },
       inLanguage: language === 'zh' ? 'zh-CN' : 'en-US',
       aiTransparencyNote: language === 'zh'
