@@ -22,26 +22,39 @@ function AppContent() {
   const [showManualModal, setShowManualModal] = useState(false)
 
   const fetchTranslation = async (address: string) => {
-    const url = `https://api.mxai.site/transadd/`;
-    const tranlateType = fromChinese ? 'cn2en' : 'en2cn'
+    const url = `https://api.mxai.site/transadd`;
+    const translateType = fromChinese ? 'cn2en' : 'en2cn'
     try {
+      console.log('Sending request to:', url);
+      console.log('Request payload:', { translateType, messages: address });
+      
       const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
-        body: JSON.stringify({tranlateType: tranlateType, messages: address }), 
+        body: JSON.stringify({translateType: translateType, messages: address }), 
       });
   
+      console.log('Response status:', response.status);
+      console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+  
       if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        const errorText = await response.text();
+        console.error('Error response:', errorText);
+        throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorText}`);
       }
   
       const data = await response.json();
+      console.log('Response data:', data);
       return data;
     } catch (error) {
       console.error('Error fetching translation:', error);
+      // 如果是网络错误，提供更友好的错误信息
+      if (error instanceof TypeError && error.message.includes('fetch')) {
+        throw new Error('Network error: Unable to connect to the server. Please check your internet connection.');
+      }
       throw error;
     }
   };
@@ -51,16 +64,44 @@ function AppContent() {
       setLoading(true)
       const data = await fetchTranslation(inputText);
 
+      // 检查响应数据结构
+      if (!data || !data.choices || !data.choices[0] || !data.choices[0].message) {
+        console.error('Invalid response structure:', data);
+        throw new Error('Invalid response structure: ' + JSON.stringify(data));
+      }
+
       // 解析 Mistral AI 返回的 content
       const content = data.choices[0].message.content;
 
-      // 提取 JSON 字符串（去掉 Markdown 代码块标记）
-      const jsonString = content.replace(/```json\n|\n```/g, '');
+      if (!content) {
+        throw new Error('Empty content in response');
+      }
+
+      console.log('Raw content:', content);
+
+      // content 可能已经是 JSON 字符串，需要解析
+      let jsonString = content.trim();
+      
+      // 如果包含 Markdown 代码块标记，先去掉
+      jsonString = jsonString.replace(/```json\n?/g, '').replace(/\n?```/g, '').trim();
 
       // 解析 JSON 字符串
-      const result = JSON.parse(jsonString);
+      let result;
+      try {
+        result = JSON.parse(jsonString);
+        console.log('Parsed result:', result);
+      } catch (parseError) {
+        console.error('JSON parse error:', parseError);
+        console.error('Content that failed to parse:', jsonString);
+        throw new Error('Failed to parse JSON response: ' + jsonString);
+      }
 
       // 获取翻译结果
+      if (!result || !result.address) {
+        console.error('No address field in result:', result);
+        throw new Error('No address field in result: ' + JSON.stringify(result));
+      }
+
       const translatedText = result.address;
 
       // 更新输出文本
@@ -68,6 +109,7 @@ function AppContent() {
       setLoading(false)
     } catch (error) {
       console.error('Error during translation:', error)
+      // 只显示用户友好的错误信息
       setOutputText(t.errors.translationFailed)
       setLoading(false)
     }
