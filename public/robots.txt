@@ -9,7 +9,7 @@ Allow: /
 # Disallow: /api/
 
 # 网站地图
-Sitemap: https://transadd.site/sitemap.xml
+Sitemap: https://transadd.mxai.site/sitemap.xml
 
 # 爬取延迟（可选，避免服务器负载过高）
 # Crawl-delay: 1
